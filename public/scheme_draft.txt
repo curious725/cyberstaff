@@ -1,5 +1,6 @@
-rails generate scaffold Employee first_name:string middle_name:string last_name:string
-rails generate scaffold PhoneNumber type:string number:string
-rails generate scaffold EmailAddress type:string email:string
-rails generate scaffold Comment body:text author:string
+rails generate scaffold User
+rails generate scaffold Employee first_name:string middle_name:string last_name:string employee_status:references
+rails generate scaffold PhoneNumber type:string number:string employee:references
+rails generate scaffold EmailAddress type:string email:string employee:references
+rails generate scaffold Comment body:text author:string employee:references user:references
 rails generate scaffold EmployeeStatus name:text description:string
