@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  type: 
-  number: MyString
-  employee: one
+  phones: 
+  emails: 
+  social_networks: 
 
 two:
-  type: 
-  number: MyString
-  employee: two
+  phones: 
+  emails: 
+  social_networks: 
