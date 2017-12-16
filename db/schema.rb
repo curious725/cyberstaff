@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215084121) do
+ActiveRecord::Schema.define(version: 20171215142206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -26,13 +27,12 @@ ActiveRecord::Schema.define(version: 20171215084121) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "email_addresses", force: :cascade do |t|
-    t.string "type"
-    t.string "email"
-    t.bigint "employee_id"
+  create_table "employee_contacts", force: :cascade do |t|
+    t.hstore "phones"
+    t.hstore "emails"
+    t.hstore "social_networks"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["employee_id"], name: "index_email_addresses_on_employee_id"
   end
 
   create_table "employee_statuses", force: :cascade do |t|
@@ -50,15 +50,6 @@ ActiveRecord::Schema.define(version: 20171215084121) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["employee_status_id"], name: "index_employees_on_employee_status_id"
-  end
-
-  create_table "phone_numbers", force: :cascade do |t|
-    t.string "type"
-    t.string "number"
-    t.bigint "employee_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["employee_id"], name: "index_phone_numbers_on_employee_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,7 +71,5 @@ ActiveRecord::Schema.define(version: 20171215084121) do
 
   add_foreign_key "comments", "employees"
   add_foreign_key "comments", "users"
-  add_foreign_key "email_addresses", "employees"
   add_foreign_key "employees", "employee_statuses"
-  add_foreign_key "phone_numbers", "employees"
 end
