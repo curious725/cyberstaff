@@ -3,5 +3,3 @@ rails generate model Employee first_name:string middle_name:string last_name:str
 rails generate model Comment body:text author:string employee:references user:references
 rails generate model EmployeeStatus name:text description:string
 rails generate model EmployeeContact phones:hstore emails:hstore social_networks:hstore
-
-
