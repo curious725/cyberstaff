@@ -1,6 +1,6 @@
-class CreateEmployeeContacts < ActiveRecord::Migration[5.1]
+class CreateCandidateContacts < ActiveRecord::Migration[5.1]
   def change
-    create_table :employee_contacts do |t|
+    create_table :candidate_contacts do |t|
       t.hstore :phones
       t.hstore :emails
       t.hstore :social_networks

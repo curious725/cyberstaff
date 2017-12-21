@@ -3,11 +3,11 @@
 one:
   body: MyText
   author: MyString
-  employee: one
+  candidate: one
   user: one
 
 two:
   body: MyText
   author: MyString
-  employee: two
+  candidate: two
   user: two

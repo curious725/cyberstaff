@@ -4,10 +4,10 @@ one:
   first_name: MyString
   middle_name: MyString
   last_name: MyString
-  employee_status: one
+  candidate_status: one
 
 two:
   first_name: MyString
   middle_name: MyString
   last_name: MyString
-  employee_status: two
+  candidate_status: two

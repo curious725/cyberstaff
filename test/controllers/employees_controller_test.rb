@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class EmployeesControllerTest < ActionDispatch::IntegrationTest
+class CandidatesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @employee = employees(:one)
+    @candidate = candidates(:one)
   end
 
   test "should get index" do
-    get employees_url
+    get candidates_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_employee_url
+    get new_candidate_url
     assert_response :success
   end
 
-  test "should create employee" do
-    assert_difference('Employee.count') do
-      post employees_url, params: { employee: {  } }
+  test "should create candidate" do
+    assert_difference('Candidate.count') do
+      post candidates_url, params: { candidate: {  } }
     end
 
-    assert_redirected_to employee_url(Employee.last)
+    assert_redirected_to candidate_url(Candidate.last)
   end
 
-  test "should show employee" do
-    get employee_url(@employee)
+  test "should show candidate" do
+    get candidate_url(@candidate)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_employee_url(@employee)
+    get edit_candidate_url(@candidate)
     assert_response :success
   end
 
-  test "should update employee" do
-    patch employee_url(@employee), params: { employee: {  } }
-    assert_redirected_to employee_url(@employee)
+  test "should update candidate" do
+    patch candidate_url(@candidate), params: { candidate: {  } }
+    assert_redirected_to candidate_url(@candidate)
   end
 
-  test "should destroy employee" do
-    assert_difference('Employee.count', -1) do
-      delete employee_url(@employee)
+  test "should destroy candidate" do
+    assert_difference('Candidate.count', -1) do
+      delete candidate_url(@candidate)
     end
 
-    assert_redirected_to employees_url
+    assert_redirected_to candidates_url
   end
 end

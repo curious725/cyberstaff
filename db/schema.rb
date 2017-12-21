@@ -16,18 +16,7 @@ ActiveRecord::Schema.define(version: 20171215142206) do
   enable_extension "plpgsql"
   enable_extension "hstore"
 
-  create_table "comments", force: :cascade do |t|
-    t.text "body"
-    t.string "author"
-    t.bigint "employee_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["employee_id"], name: "index_comments_on_employee_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "employee_contacts", force: :cascade do |t|
+  create_table "candidate_contacts", force: :cascade do |t|
     t.hstore "phones"
     t.hstore "emails"
     t.hstore "social_networks"
@@ -35,21 +24,46 @@ ActiveRecord::Schema.define(version: 20171215142206) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "employee_statuses", force: :cascade do |t|
+  create_table "candidates", force: :cascade do |t|
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
+    t.bigint "phase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["phase_id"], name: "index_candidates_on_phase_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.string "author"
+    t.bigint "candidate_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_comments_on_candidate_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "phase_categories", force: :cascade do |t|
     t.text "name"
-    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "employees", force: :cascade do |t|
-    t.string "first_name"
-    t.string "middle_name"
-    t.string "last_name"
-    t.bigint "employee_status_id"
+  create_table "phases", force: :cascade do |t|
+    t.text "name"
+    t.bigint "phase_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["employee_status_id"], name: "index_employees_on_employee_status_id"
+    t.index ["phase_category_id"], name: "index_phases_on_phase_category_id"
+  end
+
+  create_table "phases_vacancies", id: false, force: :cascade do |t|
+    t.bigint "phase_id"
+    t.bigint "vacancy_id"
+    t.index ["phase_id"], name: "index_phases_vacancies_on_phase_id"
+    t.index ["vacancy_id"], name: "index_phases_vacancies_on_vacancy_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,7 +83,14 @@ ActiveRecord::Schema.define(version: 20171215142206) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "comments", "employees"
+  create_table "vacancies", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "candidates", "phases"
+  add_foreign_key "comments", "candidates"
   add_foreign_key "comments", "users"
-  add_foreign_key "employees", "employee_statuses"
+  add_foreign_key "phases", "phase_categories"
 end
