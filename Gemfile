@@ -15,7 +15,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.3'
 gem 'react-rails', '~> 2.4', '>= 2.4.3'
-gem 'haml', '~> 5.0', '>= 5.0.4'
+gem 'haml-rails', '~> 1.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

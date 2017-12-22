@@ -1,0 +1,11 @@
+= form_with(model: phase_category, local: true) do |form|
+  - if phase_category.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(phase_category.errors.count, "error")
+        prohibited this phase_category from being saved:
+      %ul
+        - phase_category.errors.full_messages.each do |message|
+          %li= message
+  .actions
+    = form.submit
