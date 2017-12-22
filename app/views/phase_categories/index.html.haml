@@ -12,5 +12,4 @@
         %td= link_to 'Destroy', phase_category, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
 = link_to 'New Phase Category', new_phase_category_path
-
-= react_component :PhaseCategoriesList
+= react_component :PhaseCategoriesList, phase_categories: @phase_categories
