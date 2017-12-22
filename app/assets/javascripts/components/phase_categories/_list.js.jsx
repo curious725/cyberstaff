@@ -1,28 +1,35 @@
-class PhaseCategoriesList extends React.Component {
+class PhaseCategoriesTable extends React.Component {
   constructor(data) {
     super();
     this.categories = data.phase_categories
   }
 
-// welcome(props) {
-//   return <h1>Hello, {props.name}</h1>;
-// }
+  tableHead() {
+    return (
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Created at</th>
+      </tr>
+    )
+  }
 
-// <div>
-//   <this.welcome name="Sara" />
-//   <this.welcome name="Cahal" />
-//   <this.welcome name="Edite" />
-// </div>
-
-  listCategories(){
+  categoryItems() {
     return this.categories.map((number) =>
-      <li key={number.id}>{number.created_at}</li>
+      <tr key={number.id}>
+        <td>{number.id}</td>
+        <td>{number.name}</td>
+        <td>{number.created_at}</td>
+      </tr>
     );
   }
 
   render() {
     return (
-      <ul>{this.listCategories(name="Nazar")}</ul>
+      <table>
+        <thead>{this.tableHead()}</thead>
+        <tbody>{this.categoryItems()}</tbody>
+      </table>
     )
   }
 }
