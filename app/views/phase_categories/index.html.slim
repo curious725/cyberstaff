@@ -1,0 +1,15 @@
+p#notice= notice
+h1 Phase Categories
+table
+  thead
+    tr
+      th colspan="3" 
+  tbody
+    - @phase_categories.each do |phase_category|
+      tr
+        td= link_to 'Show', phase_category
+        td= link_to 'Edit', edit_phase_category_path(phase_category)
+        td= link_to 'Destroy', phase_category, method: :delete, confirm: 'Are you sure?'  
+br/
+= link_to 'New Phase Category', new_phase_category_path
+= react_component :PhaseCategoriesTable, phase_categories: @phase_categories

@@ -15,7 +15,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.3'
 gem 'react-rails', '~> 2.4', '>= 2.4.3'
-gem 'haml-rails', '~> 1.0'
+gem 'slim-rails', '~> 3.1', '>= 3.1.3'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 group :development, :test do
@@ -29,7 +29,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'erb2haml', '~> 0.1.5'
+  gem 'haml2slim', '~> 0.4.7'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
