@@ -14,9 +14,11 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.3'
-gem 'react-rails', '~> 2.4', '>= 2.4.3'
 gem 'slim-rails', '~> 3.1', '>= 3.1.3'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+
+gem 'react-rails', '~> 2.4', '>= 2.4.3'
+gem 'webpacker', '~> 3.2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

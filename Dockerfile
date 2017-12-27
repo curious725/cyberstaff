@@ -11,18 +11,12 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -\
     && apt-get update \
     && apt-get install -y yarn
 
-
 RUN mkdir /cyberstaff
 
 # modules for React(React is installed as gem)
 RUN npm install --save material-ui@next
 RUN npm install typeface-roboto --save
 RUN npm install --save material-ui-icons
-
-# webpack adn babel
-RUN yarn add --dev webpack babel-core babel-loader babel-preset-react babel-preset-env \
-    node-sass css-loader sass-loader style-loader
-
 
 WORKDIR /cyberstaff
 COPY Gemfile /cyberstaff/Gemfile
