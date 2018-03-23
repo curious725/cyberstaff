@@ -19,6 +19,8 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 gem 'react-rails', '~> 2.4', '>= 2.4.3'
 gem 'webpacker', '~> 3.2'
+gem 'materialize-sass', '~> 1.0.0.alpha4'
+gem 'material_icons'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
