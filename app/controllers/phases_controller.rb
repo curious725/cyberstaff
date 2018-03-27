@@ -1,10 +1,15 @@
 class PhasesController < ApplicationController
   before_action :set_phase, only: [:show, :edit, :update, :destroy]
+  require 'benchmark'
 
   # GET /phases
   # GET /phases.json
   def index
-    @phases = Phase.all
+    @phases = Phase.joins(:phase_category)
+      .select("phases.id, phases.name, phases.created_at, phase_categories.name as category_name")
+      .map do |phase|
+        { id: phase.id, name: phase.name, created_at: phase.created_at, category_name: phase.category_name }
+      end
   end
 
   # GET /phases/1

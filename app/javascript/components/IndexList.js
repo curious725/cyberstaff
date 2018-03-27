@@ -10,16 +10,18 @@ class IndexList extends React.Component {
         <td>{item.id}</td>
         <td>{item.name}</td>
         <td>{item.created_at}</td>
+        <td>{item.category_name}</td>
       </tr>
     );
 
     return (
-      <table class="striped">
+      <table className="striped">
       <thead>
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Created at</th>
+            <th>Phase Category</th>
         </tr>
       </thead>
 
