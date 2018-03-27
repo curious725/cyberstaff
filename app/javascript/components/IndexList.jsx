@@ -1,17 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
+import ListItem from "./ListItem.jsx"
 
 class IndexList extends React.Component {
   render () {
-    let items = this.props.data
-    
+    let items = this.props.items
+
     let listItems = items.map((item) =>
-      <tr key={item.id}>
-        <td>{item.id}</td>
-        <td>{item.name}</td>
-        <td>{item.created_at}</td>
-        <td>{item.category_name}</td>
-      </tr>
+      <ListItem  key={item.id} item={item}/>
     );
 
     return (
