@@ -7,7 +7,7 @@ class IndexList extends React.Component {
     let items = this.props.items
 
     let listItems = items.map((item) =>
-      <ListItem  key={item.id} item={item}/>
+      <ListItem key={item.id} item={item}/>
     );
 
     return (
