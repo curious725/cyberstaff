@@ -11,10 +11,10 @@ def system!(*args)
 end
 
 chdir APP_ROOT do
+  system 'sudo docker-compose run web yarn install'
   system 'sudo docker-compose run web rake db:create'
   system 'sudo docker-compose run web rake db:enable:hstore'
   system 'sudo docker-compose run web rake db:migrate'
-  system 'sudo docker-compose run web yarn install'
 
   system 'sudo docker-compose build'
 end
