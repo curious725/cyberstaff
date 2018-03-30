@@ -1,20 +1,10 @@
-#!/usr/bin/env ruby
-require 'pathname'
-require 'fileutils'
-include FileUtils
+#!/bin/bash
+sudo docker-compose run web yarn install
+sudo docker-compose run web rake db:create
+sudo docker-compose run -e "RAILS_ENV=test" web rake db:create
+sudo docker-compose run web rake db:enable:hstore
+sudo docker-compose run -e "RAILS_ENV=test" web rake db:enable:hstore
+sudo docker-compose run web rake db:migrate
+sudo docker-compose run -e "RAILS_ENV=test" web rake db:migrate
 
-# path to your application root.
-APP_ROOT = Pathname.new File.expand_path('../../', __FILE__)
-
-def system!(*args)
-  system(*args) || abort("\n== Command #{args} failed ==")
-end
-
-chdir APP_ROOT do
-  system 'sudo docker-compose run web yarn install'
-  system 'sudo docker-compose run web rake db:create'
-  system 'sudo docker-compose run web rake db:enable:hstore'
-  system 'sudo docker-compose run web rake db:migrate'
-
-  system 'sudo docker-compose build'
-end
+sudo docker-compose build
