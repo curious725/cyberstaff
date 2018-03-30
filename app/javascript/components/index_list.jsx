@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import ListItem from "./list_item.jsx"
+import PhaseForm from "./phase/phase_form.jsx"
 
 class IndexList extends React.Component {
   render() {
@@ -11,20 +12,23 @@ class IndexList extends React.Component {
     );
 
     return (
-      <table className="striped">
-      <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Created at</th>
-            <th>Phase Category</th>
-        </tr>
-      </thead>
+      <div>
+        <PhaseForm />
+        <table className="striped">
+          <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Created at</th>
+                <th>Phase Category</th>
+            </tr>
+          </thead>
 
-      <tbody>
-        {listItems}
-      </tbody>
-    </table>
+          <tbody>
+            {listItems}
+          </tbody>
+        </table>
+      </div>
     );
   }
 }
