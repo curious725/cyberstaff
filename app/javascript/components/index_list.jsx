@@ -1,9 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
-import ListItem from "./ListItem.jsx"
+import ListItem from "./list_item.jsx"
 
 class IndexList extends React.Component {
-  render () {
+  render() {
     let items = this.props.items
 
     let listItems = items.map((item) =>
