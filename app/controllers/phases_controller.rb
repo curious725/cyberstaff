@@ -5,11 +5,7 @@ class PhasesController < ApplicationController
   # GET /phases
   # GET /phases.json
   def index
-    @phases = Phase.joins(:phase_category)
-      .select("phases.id, phases.name, phases.created_at, phase_categories.name as category_name")
-      .map do |phase|
-        { id: phase.id, name: phase.name, created_at: phase.created_at, category_name: phase.category_name }
-      end
+    @phases = Phase.with_category_name
   end
 
   # GET /phases/1
