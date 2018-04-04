@@ -1,0 +1,15 @@
+ruby_version: 'ruby-2.4.2'
+bundler_version: 1.16.0
+ 
+environment:
+  'RAILS_ENV': 'test'
+ 
+hooks:
+  pre_setup: bundle exec rake db:test:prepare
+ 
+postgresql:
+  version: '10.3'
+sqlite: false
+ 
+test_pattern:
+  - spec/**_spec.rb
