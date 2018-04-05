@@ -29,6 +29,8 @@ group :development, :test do
   gem 'rspec-rails', '3.7.2'
   gem 'factory_bot_rails', '4.8.2'
   gem 'timecop', '0.9.1'
+  gem 'rspec-sqlimit', '0.0.2'
+  gem 'database_cleaner', '1.6.2'
 end
 
 group :development do

@@ -4,12 +4,12 @@ FactoryBot.define do
 
     factory :phase_category_with_phases do
       transient do
-        posts_count 4
+        phases_count 3
       end
 
       after(:create) do |phase_category, evaluator|
         create_list(
-          :phase, evaluator.posts_count, phase_category: phase_category
+          :phase, evaluator.phases_count, phase_category: phase_category
         )
       end
     end
