@@ -1,4 +1,15 @@
 p#notice= notice
+p First name 
+  #{ @candidate.first_name }
+p Middle name
+  #{ @candidate.middle_name }
+p Last name
+  #{ @candidate.last_name }
+p Phase id
+  #{ @candidate.phase_id }
+p Candidate avatar
+  <img src="#{@candidate.avatar.url(:thumb)}" src="avatar">
+
 = link_to 'Edit', edit_candidate_path(@candidate)
 | \
 = link_to 'Back', candidates_path

@@ -1,3 +1,4 @@
+ruby '2.4.2'
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -16,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise', '~> 4.3'
 gem 'slim-rails', '~> 3.1', '>= 3.1.3'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'paperclip', '6.0.0'
 
 gem 'react-rails', '~> 2.4', '>= 2.4.3'
 gem 'webpacker', '~> 3.2'
@@ -39,6 +41,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'haml2slim', '~> 0.4.7'
+end
+
+group :production do
+  gem 'aws-sdk', '3.0.1'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
