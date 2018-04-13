@@ -23,4 +23,5 @@ WORKDIR /cyberstaff
 COPY Gemfile /cyberstaff/Gemfile
 COPY Gemfile.lock /cyberstaff/Gemfile.lock
 RUN bundle install
+RUN yarn install
 COPY . /cyberstaff
