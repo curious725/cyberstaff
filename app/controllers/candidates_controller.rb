@@ -10,6 +10,7 @@ class CandidatesController < ApplicationController
   # GET /candidates/1
   # GET /candidates/1.json
   def show
+    @candidate = Candidate.find(params[:id])
   end
 
   # GET /candidates/new
@@ -69,6 +70,7 @@ class CandidatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidate_params
-      params.fetch(:candidate, {})
+      params.require(:candidate).permit(:first_name, :middle_name, :last_name,
+        :phase_id, :avatar)
     end
 end

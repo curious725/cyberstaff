@@ -7,5 +7,21 @@
       ul
         - candidate.errors.full_messages.each do |message|
           li= message
+
+  = form.label :first_name
+  = form.text_field :first_name
+
+  = form.label :middle_name
+  = form.text_field :middle_name
+
+  = form.label :last_name
+  = form.text_field :last_name
+
+  = form.label :phase_id 
+  = form.text_field :phase_id, pattern: "[0-9]+"
+
+  = form.label :avatar
+  = form.file_field :avatar
+
   .actions
     = form.submit
